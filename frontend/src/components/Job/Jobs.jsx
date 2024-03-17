@@ -11,7 +11,7 @@ import Cookies from "js-cookie";
 //   useEffect(() => {
 //     try {
 //       axios
-//         .get("https://final-job-nine.onrender.com/api/v1/job/getall", {
+//         .get("https://final-job.onrender.com/api/v1/job/getall", {
 //           withCredentials: true,
 //           headers: {
 //             "Content-Type": "multipart/form-data",
@@ -85,7 +85,7 @@ const Jobs = () => {
   useEffect(() => {
     try {
       axios
-        .get("https://final-job-nine.onrender.com/api/v1/job/getall", {
+        .get("https://final-job.onrender.com/api/v1/job/getall", {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",

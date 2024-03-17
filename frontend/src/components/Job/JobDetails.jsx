@@ -14,7 +14,7 @@ const JobDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://final-job-nine.onrender.com/api/v1/job/${id}`, {
+      .get(`https://final-job.onrender.com/api/v1/job/${id}`, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",

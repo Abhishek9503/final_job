@@ -18,11 +18,10 @@ const app = express();
 app.use(
   cors({
     origin: [
-      process.env.FRONTEND_URL,
       "https://final-job-nine.vercel.app",
+      process.env.FRONTEND_URL,
       "https://hackhive-job.vercel.app",
       "http://localhost:5173",
-      
     ],
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
