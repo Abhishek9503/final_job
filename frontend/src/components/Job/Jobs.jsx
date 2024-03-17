@@ -61,6 +61,7 @@ import Banner from "../components/Banner";
 import Card from "../components/Card";
 // import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
+import Newletter from "../components/Newletter";
 // Assuming Card component is imported
 
 const Jobs = () => {
@@ -231,7 +232,9 @@ const Jobs = () => {
           )}
         </div>
 
-        <div className="bg-white p-4 rounded">Right</div>
+        <div className="bg-white p-4 rounded">
+          <Newletter/>
+        </div>
       </div>
     </div>
   );
