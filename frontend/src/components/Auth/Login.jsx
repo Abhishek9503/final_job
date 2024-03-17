@@ -121,33 +121,32 @@ const Login = () => {
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "https://final-job.onrender.com/api/v1/user/login",
-        { email, password, role },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
+        e.preventDefault();
+        try {
+          const { data } = await axios.post(
+            "https://final-job.onrender.com/api/v1/user/login",
+            { email, password, role },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+          toast.success(data.message);
+          setEmail("");
+          setPassword("");
+          setRole("");
+          setIsAuthorized(true);
+          localStorage.setItem("token", data.token);
+        } catch (error) {
+          toast.error(error.response.data.message);
         }
-      );
-      toast.success(data.message);
-      setEmail("");
-      setPassword("");
-      setRole("");
-      setIsAuthorized(true);
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
-
-  
-
-  if (isAuthorized) {
-    return <Navigate to={"/"} />;
-  }
+      };
+    
+      if (isAuthorized) {
+        return <Navigate to={"/"} />;
+      }
 
   return (
     <>
