@@ -125,6 +125,10 @@ const Jobs = () => {
           : [];
       console.log(filteredItems);
 
+      useEffect(() => {
+        console.log(selectedCategory)
+      }, [selectedCategory])
+
       const handleChange = (event) => {
         setSelectedCategory(event.target.value);
       };

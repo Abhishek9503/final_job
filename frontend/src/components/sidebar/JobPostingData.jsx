@@ -1,10 +1,10 @@
 import React from "react";
 import InputField from "../components/InputField";
 
-const Location = ({ handleChange }) => {
+const JobPostingData = ({ handleChange }) => {
   return (
     <div>
-      <h4 className="text-lg font-medium mb-2">Location</h4>
+      <h4 className="text-lg font-medium mb-2">Date of Posting</h4>
 
       <div className="flex flex-col gap-2">
         <label className="sidebar-label-container">
@@ -12,7 +12,7 @@ const Location = ({ handleChange }) => {
             type="radio"
             name="test"
             id="test"
-            value=""
+            value="all"
             onChange={handleChange}
           />
           <span className="checkmark"></span>All
@@ -20,29 +20,22 @@ const Location = ({ handleChange }) => {
 
         <InputField
           handleChange={handleChange}
-          value="indore"
-          title="Indore"
+          value="Today"
+          title="Today"
           name="test"
         />
 
         <InputField
           handleChange={handleChange}
-          value="banglore"
-          title="Banglore"
+          value="This Week"
+          title="This Week"
           name="test"
         />
 
         <InputField
           handleChange={handleChange}
-          value="pune"
-          title="Pune"
-          name="test"
-        />
-
-        <InputField
-          handleChange={handleChange}
-          value="hyderabad"
-          title="Hyderabad"
+          value="This Month"
+          title="This Month"
           name="test"
         />
       </div>
@@ -50,4 +43,4 @@ const Location = ({ handleChange }) => {
   );
 };
 
-export default Location;
+export default JobPostingData;
