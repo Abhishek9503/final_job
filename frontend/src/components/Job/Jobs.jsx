@@ -198,11 +198,11 @@ const Jobs = () => {
           <Sidebar handleChange={handleChange} handleCLick={handleCLick} />
         </div>
 
-        <div className="col-span-2 bg-white p-4 rounded-sm">
+        <div className="col-span-2  bg-white p-4 rounded-sm">
           {isLoading ? (
             <p>Loading</p>
           ) : result.length > 0 ? (
-            <div>{result}</div>
+            <div className="">{result}</div>
           ) : (
             <>
               <h3>{result.length}Jobs</h3>
