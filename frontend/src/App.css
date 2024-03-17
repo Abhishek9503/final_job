@@ -76,7 +76,6 @@ p {
   display: flex;
   min-width: 1500px;
   max-width: 1500px;
-  margin: 0 auto;
   min-height: 100vh;
 }
 .authPage .container {
@@ -166,12 +165,11 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: hidden;
 }
 .authPage .banner img {
   width: 100%;
-  width: 550px;
-  height: 550px;
+  width: 450px;
+  height: 450px;
 }
 @media (max-width: 1520px) {
   .authPage {
@@ -296,7 +294,6 @@ p {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  color: #2d5649;
 }
 .heroSection .details .card .content p:first-child {
   font-weight: bold;
@@ -555,7 +552,7 @@ p {
   color: gray;
 }
 .companies .container .banner .card button {
-  color: #2d5649;
+  color: blue;
   background: rgb(233, 249, 255);
   font-weight: bold;
   font-size: 20px;
@@ -1349,6 +1346,3 @@ nav .hamburger {
     z-index: 11;
   }
 }
-
-
-

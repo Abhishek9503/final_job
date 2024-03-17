@@ -111,16 +111,7 @@ const Jobs = () => {
     return { startIndex, endIndex };
   };
 
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const nextPage = () => {
-    if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
-
+ 
       const handleInputChange = (event) => {
         setQuery(event.target.value);
       };
@@ -180,6 +171,17 @@ const Jobs = () => {
       const result = filteredData(jobs, selectedCategory, query);
 
       //funtion for pagination
+      const prevPage = () => {
+        if (currentPage > 1) {
+          setCurrentPage(currentPage - 1);
+        }
+      };
+    
+      const nextPage = () => {
+        if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
+          setCurrentPage(currentPage + 1);
+          
+    
     }
   };
 
