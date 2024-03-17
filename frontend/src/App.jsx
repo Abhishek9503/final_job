@@ -26,7 +26,7 @@ const App = () => {
       try {
         console.log("aa", localStorage.getItem("token"));
         const response = await axios.get(
-          "https://final-job.onrender.com/api/v1/user/getuser",
+          "https://final-job-nine.onrender.com/api/v1/user/getuser",
           {
             headers: {
               "Content-Type": "application/json",

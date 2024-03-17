@@ -20,7 +20,7 @@ const MyApplications = () => {
       if (user && user.role === "Employer") {
         axios
           .get(
-            "https://final-job.onrender.com/api/v1/application/employer/getall",
+            "https://final-job-nine.onrender.com/api/v1/application/employer/getall",
             {
               withCredentials: true,
             }
@@ -31,7 +31,7 @@ const MyApplications = () => {
       } else {
         axios
           .get(
-            "https://final-job.onrender.com/api/v1/application/jobseeker/getall",
+            "https://final-job-nine.onrender.com/api/v1/application/jobseeker/getall",
             {
               withCredentials: true,
               headers: {
@@ -60,7 +60,7 @@ const MyApplications = () => {
     try {
       axios
         .delete(
-          `https://final-job.onrender.com/api/v1/application/delete/${id}`,
+          `https://final-job-nine.onrender.com/api/v1/application/delete/${id}`,
           {
             withCredentials: true,
             headers: {
