@@ -155,7 +155,7 @@ const Jobs = () => {
               // employmentType,
               // postingDate,
             }) =>
-              location.contains(selected.toLowerCase())  ||
+              location.toLowerCase().includes(selected.toLowerCase())  ||
               parseInt(salaryTo) === parseInt(selected)
             // ||
             //  ||
