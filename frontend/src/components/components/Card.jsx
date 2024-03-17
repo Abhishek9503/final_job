@@ -16,6 +16,7 @@ import { FiCalendar, FiClock, FiDollarSign, FiMapPin } from "react-icons/fi";
 
 const Card = ({ data }) => {
   const {
+    _id,
     companyName,
     companyLogo,
     title,
@@ -30,7 +31,7 @@ const Card = ({ data }) => {
 
   return (
     <section className="card mt-5 border shadow-lg	">
-      <Link to={"/"} className="flex gap-4 flex-col sm:flex-row items-start">
+      <Link to={`/application/${_id}`} className="flex gap-4 flex-col sm:flex-row items-start">
         <img src={companyLogo} alt="" />
         <div className="card-details">
           <h4 className="text-primary mb-1">{companyName}</h4>
