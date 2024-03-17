@@ -21,7 +21,7 @@ app.use(
       process.env.FRONTEND_URL,
       "https://hackhive-job.vercel.app",
       "http://localhost:5173",
-      "https://final-job-nine.vercel.com"
+      "https://final-job-nine.vercel.app"
     ],
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
