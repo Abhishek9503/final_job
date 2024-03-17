@@ -20,7 +20,7 @@ const MyApplications = () => {
       if (user && user.role === "Employer") {
         axios
           .get(
-            "https://hackhive-job.onrender.com/api/v1/application/employer/getall",
+            "https://final-job.onrender.com/api/v1/application/employer/getall",
             {
               withCredentials: true,
             }
@@ -31,7 +31,7 @@ const MyApplications = () => {
       } else {
         axios
           .get(
-            "https://hackhive-job.onrender.com/api/v1/application/jobseeker/getall",
+            "https://final-job.onrender.com/api/v1/application/jobseeker/getall",
             {
               withCredentials: true,
               headers: {
@@ -60,14 +60,12 @@ const MyApplications = () => {
     try {
       axios
         .delete(
-          `https://hackhive-job.onrender.com/api/v1/application/delete/${id}`,
+          `https://final-job.onrender.com/api/v1/application/delete/${id}`,
           {
             withCredentials: true,
             headers: {
               "Content-Type": "multipart/form-data",
-              Authorization:
-                Cookies.get("token") ||
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjVlYjU0MWI5ZDA0YzlmZjk1NjQ3NiIsImlhdCI6MTcxMDY0NjcwMCwiZXhwIjo2ODk0NjQ2NzAwfQ.OuO7E3KJsVwOV6U19wJJOaaUqnJzvC8ysRsFpKAWDpI",
+              Authorization: localStorage.getItem("token"),
             },
           }
         )

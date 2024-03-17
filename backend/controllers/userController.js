@@ -19,7 +19,9 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     password,
     role,
   });
-  sendToken(user, 201, res, "User Registered!");
+  // sendToken(user, 201, res, "User Registered!");
+  const token = user.getJWTToken();
+  res.json({ token })
 });
 
 export const login = catchAsyncErrors(async (req, res, next) => {
@@ -40,7 +42,9 @@ export const login = catchAsyncErrors(async (req, res, next) => {
       new ErrorHandler(`User with provided email and ${role} not found!`, 404)
     );
   }
-  sendToken(user, 201, res, "User Logged In!");
+  // sendToken(user, 201, res, "User Logged In!");                           
+  const token = user.getJWTToken();
+  res.json({ token })
 });
 
 export const logout = catchAsyncErrors(async (req, res, next) => {
@@ -53,7 +57,7 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
     .json({
       success: true,
       message: "Logged Out Successfully.",
-    });
+    });                          
 });
 
 

@@ -11,7 +11,7 @@ import Cookies from "js-cookie";
 //   useEffect(() => {
 //     try {
 //       axios
-//         .get("https://hackhive-job.onrender.com/api/v1/job/getall", {
+//         .get("https://final-job.onrender.com/api/v1/job/getall", {
 //           withCredentials: true,
 //           headers: {
 //             "Content-Type": "multipart/form-data",
@@ -85,7 +85,7 @@ const Jobs = () => {
   useEffect(() => {
     try {
       axios
-        .get("https://hackhive-job.onrender.com/api/v1/job/getall", {
+        .get("https://final-job.onrender.com/api/v1/job/getall", {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",
@@ -104,328 +104,84 @@ const Jobs = () => {
     }
   }, []);
 
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
+  const calculatePageRange = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    return { startIndex, endIndex };
   };
 
-  const filteredItems =
-    Array.isArray(jobs) && jobs.length > 0
-      ? jobs.filter(
-          (job) => job.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
-        )
-      : [];
-  console.log(filteredItems);
-
-  const handleChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-  const handleCLick = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-  const filteredData = (jobs, selected, query) => {
-    let filteredJobs = jobs;
-
-    if (query) {
-      filteredJobs = filteredItems;
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
-
-    if (selected) {
-      filteredJobs = filteredJobs.filter(
-        ({
-          location,
-          salaryTo,
-          // country
-          // experienceLevel,
-          // salaryType,
-          // employmentType,
-          // postingDate,
-        }) =>
-          location.toLowerCase() === selected.toLowerCase() ||
-          parseInt(salaryTo) === parseInt(selected) 
-          // ||
-          //  ||
-          // country.toLowerCase() === country.toLowerCase()
-          // employmentType.toLowerCase() === selected.toLowerCase()
-      );
-    }
-
-    // Map over filteredJobs, not filteredData
-    return Array.isArray(filteredJobs) && filteredJobs.length > 0 ? (
-      filteredJobs.map((data, i) => <Card key={i} data={data} />)
-    ) : (
-      <></>
-    );
   };
 
-  const result = filteredData(jobs, selectedCategory, query);
+  const nextPage = () => {
+    if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
 
+      const handleInputChange = (event) => {
+        setQuery(event.target.value);
+      };
 
-  //funtion for pagination
+      const filteredItems =
+        Array.isArray(jobs) && jobs.length > 0
+          ? jobs.filter(
+              (job) =>
+                job.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+            )
+          : [];
+      console.log(filteredItems);
 
-  const prevPage = () =>{
-    if(currentPage>1){
-      setCurrentPage(currentPage-1)}
-  }
+      const handleChange = (event) => {
+        setSelectedCategory(event.target.value);
+      };
 
-  const nextPage = () =>{
-    if(currentPage<Math.ceil(filteredItems.length/itemsPerPage)){
-      setCurrentPage(currentPage+1)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      const handleCLick = (event) => {
+        setSelectedCategory(event.target.value);
+      };
+
+      const filteredData = (jobs, selected, query) => {
+        let filteredJobs = jobs;
+
+        if (query) {
+          filteredJobs = filteredItems;
+        }
+
+        if (selected) {
+          filteredJobs = filteredJobs.filter(
+            ({
+              location,
+              salaryTo,
+              // country
+              // experienceLevel,
+              // salaryType,
+              // employmentType,
+              // postingDate,
+            }) =>
+              location.toLowerCase() === selected.toLowerCase() ||
+              parseInt(salaryTo) === parseInt(selected)
+            // ||
+            //  ||
+            // country.toLowerCase() === country.toLowerCase()
+            // employmentType.toLowerCase() === selected.toLowerCase()
+          );
+        }
+
+        // Map over filteredJobs, not filteredData
+        return Array.isArray(filteredJobs) && filteredJobs.length > 0 ? (
+          filteredJobs.map((data, i) => <Card key={i} data={data} />)
+        ) : (
+          <></>
+        );
+      };
+
+      const result = filteredData(jobs, selectedCategory, query);
+
+      //funtion for pagination
     }
-  }
+  };
 
   return (
     <div>
@@ -451,7 +207,13 @@ const Jobs = () => {
           {/* pagination */}
           {result.length > 0 ? (
             <div className="flex justify-center mt-4 space-x-8">
-              <button onClick={(prevPage) => {nextPage}}>Previous</button>
+              <button
+                onClick={(prevPage) => {
+                  nextPage;
+                }}
+              >
+                Previous
+              </button>
               <span>
                 Page{currentPage} of{" "}
                 {Math.ceil(filteredItems.length / itemsPerPage)}

@@ -14,18 +14,17 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "https://hackhive-job.onrender.com/api/v1/user/logout",
+        "https://final-job.onrender.com/api/v1/user/logout",
         {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization:
-              Cookies.get("token") ||
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjVlYjU0MWI5ZDA0YzlmZjk1NjQ3NiIsImlhdCI6MTcxMDY0NjcwMCwiZXhwIjo2ODk0NjQ2NzAwfQ.OuO7E3KJsVwOV6U19wJJOaaUqnJzvC8ysRsFpKAWDpI",
+            Authorization: localStorage.getItem("token"),
           },
         }
       );
       toast.success(response.data.message);
+      localStorage.removeItem("token");
       setIsAuthorized(false);
       navigateTo("/login");
     } catch (error) {
